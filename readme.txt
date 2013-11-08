@@ -7,7 +7,7 @@ Requires at least: 3.5
 Tested up to: 3.7.1
 Stable tag: 1.0
 License: GPLv3
-Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
+Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths, links, downloads
 
 Display file download links from your server directories or page attachments in stylized lists or sortable data tables.
 
