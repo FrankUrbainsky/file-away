@@ -191,7 +191,7 @@ All attributes optional:
 == Changelog ==
 
 = 1.1 =
-* When performing this update, it may not appear to complete the update process. Don't worry. It completes. Just reactive the plugin manually. This won't be a problem with future updates.
+* When performing this update, it may not appear to complete the update process. Don't worry. It completes. Just reactivate the plugin manually. This won't be a problem with future updates.
 * Moved custom CSS folder from plugin directory to wp-content/uploads/fileaway-custom-css to ensure preservation of custom styles on plugin updates. Be sure to manually back up your custom stylesheet if you have one in the current custom-css folder. You won't ever have to do this again.
 = 1.0 =
 * Initial release
