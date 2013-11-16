@@ -445,7 +445,7 @@ class File_Away_Options {
 		$this->settings['newwindow'] = array(
 			'title'   => __( 'New Window' ),
 			'desc'    => __( '' ),
-			'std'     => '.pdf, .jpg, .png, .gif, .mp3, .mp4',
+			'std'     => 'Example: .pdf, .jpg, .png, .gif, .mp3, .mp4',
 			'type'    => 'text',
 			'section' => 'config',
 			'class'   => 'ssfa-newwindow',
