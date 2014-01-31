@@ -3,7 +3,7 @@
 echo '<p><dl class="accordion">
 <dt><label>File Away</label></dt>
 <dd style="display:none;">
-File Away is a WordPress plugin written by Thom Stark. Thom Stark is a <a href="http://imdb.me/thomstark/" target="_blank">filmmaker</a>. A filmmaker is a narcissist with a camera. A narcissist with a camera is a Thom Stark. A Thom Stark is a WordPress plugin author. A WordPress plugin is File Away.
+File Away is a WordPress plugin written by Thom Stark. Thom Stark is a <a href="http://imdb.me/thomstark" target="_blank">filmmaker</a>. A filmmaker is a narcissist with a camera. A narcissist with a camera is a Thom Stark. A Thom Stark is a WordPress plugin author. A WordPress plugin is File Away.
 <br />
 <br />
 Thom started learning PHP while he was waiting for a paycheck to arrive. This plugin is the result. 
