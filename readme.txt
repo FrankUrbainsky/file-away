@@ -202,7 +202,7 @@ All attributes optional:
 = 1.3 =
 * Checked compat with WP 3.8.1 - still kicking.
 * Fixed issue with WP installations whose WP url and Site url are different.
-* Added three new shortcode attributes: 'showto' & 'hidefrom' take comma-separated lists of user roles, and restrict viewing access to the file display based on the logged-in user's role, while 'nolinks=true' disables the hypertext reference portion of the &#60;a&#62; tag, if, for instance, you want to display successful uploads but not provide links to the uploaded files. 
+* Added three new shortcode attributes: 'showto' & 'hidefrom' take comma-separated lists of user roles, and restrict viewing access to the file display based on the logged-in user's role, while 'nolinks=true' disables the hypertext reference portion of the anchor tag, if, for instance, you want to display successful uploads but not provide links to the uploaded files. 
 * Narcissism: fixed typo in About tab link to my IMDb page.
 = 1.2 =
 * Added new shortcode attribute: sortfirst -- Allows user to choose by which column to sort on initial page load (for tables only).
