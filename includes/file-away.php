@@ -46,6 +46,7 @@ function sssc_fileaway ( $atts ) {
 	$sub = ( $sub ? trim ( $sub, '/' ) : null ); $dir = ( $sub ? $base.'/'.$sub : $base );
 	include SSFA_INCLUDES.'private-content.php';  
 	$dir = ( strpos ( $dir, '//' ) ? preg_replace( '#/+#', '/', $dir ) : $dir );
+	if ($private_content = true and !is_dir($dir)) return null;
 	include SSFA_INCLUDES.'shortcode-options.php';  
 	if ( $type === 'table' ) {
 		$typesort = null; $filenamesort = null; $customsort = null; $modsort = null; $sizesort = null;
