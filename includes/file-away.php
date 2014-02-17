@@ -127,5 +127,5 @@ function sssc_fileaway ( $atts ) {
 	$thefiles .= ( $type === 'table' ? '</tbody></table></div>' : '</div>' );
 	if ( $debug === 'on' && $logged_in ) { include SSFA_INCLUDES.'file-away-debug.php'; return ssfa_debug($url, $dir); }
 	elseif ( $logged_in && $private_content && $count !== 0 ) return $thefiles; 	
-	elseif ( !$private_content && $count !== 0 ) return $thefiles; 
+	elseif ( is_dir($dir) && $count !== 0 ) return $thefiles; 
 }
