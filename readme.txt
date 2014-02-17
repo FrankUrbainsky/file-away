@@ -2,10 +2,10 @@
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 1.3
+Version: 1.3.1
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.3
+Stable tag: 1.3.1
 License: GPLv3
 Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 
@@ -199,6 +199,8 @@ All attributes optional:
 
 
 == Changelog ==
+= 1.3.1 =
+* Bug fixes: Fixed issue with files not displaying to logged out users. Fixed scandir error when using dynamic paths.
 = 1.3 =
 * Checked compat with WP 3.8.1 - still kicking.
 * Fixed issue with WP installations whose WP url and Site url are different.
