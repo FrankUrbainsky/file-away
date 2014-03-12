@@ -1,5 +1,4 @@
 <?php
-
 // THE FILE AWAY SHORTCODE
 add_shortcode('fileaway', 'sssc_fileaway');
 function sssc_fileaway($atts){
@@ -171,3 +170,5 @@ function sssc_fileaway($atts){
 	elseif ($private_content !== true && $count !== 0): return $thefiles; 
 	endif;
 }
+
+?>
