@@ -2,10 +2,10 @@
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 1.3.1
+Version: 1.3.2
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPLv3
 Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 
@@ -199,6 +199,7 @@ All attributes optional:
 
 
 == Changelog ==
+= 1.3.2 = Bux fixes: Fixed the showto= and hidefrom= attributes. Due to some really inexplicably dumb coding when I originally added this feature, it only worked for the first role in the list. So now I've replaced the really dumb code with some different code that, while not necessarily genius, at least does what it is supposed to do.
 = 1.3.1 =
 * Bug fixes: Fixed issue with files not displaying to logged out users. Fixed scandir error when using dynamic paths.
 = 1.3 =
