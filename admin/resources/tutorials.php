@@ -80,6 +80,13 @@ echo '<tr>
 <td class="ssfa-minimalist-last-column">Picks up from where the selected Base Directory path leaves off. Dynamic Path codes can be used. (See "Dynamic Paths")</td>
 </tr>';
 echo '<tr>
+<td class="ssfa-minimalist-first-column">[fileaway]</td>
+<td>recursive</td>
+<td>recursive=ohlordyitsrecursive (or recursive=anything) to enable; leave out to disable</td>
+<td>list, table</td>
+<td class="ssfa-minimalist-last-column">If Recursive Directory Iteration is enabled, the files from the specified directory, and from all subdirectories, will be output by the shortcode. If disabled, only the files from the specified directory will be displayed.</td>
+</tr>';
+echo '<tr>
 <td class="ssfa-minimalist-first-column">[attachaway]</td>
 <td>postid</td>
 <td>User defined. Example: 1028</td>

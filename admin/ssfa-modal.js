@@ -47,7 +47,7 @@ jQuery(function($){
 			type = ( ttype === 'table' ? ' type="table"' : '' );
 		var	shortcode = (stype === 'fileaway' ? '[fileaway'+type : '[attachaway'+type );
 		if ( stype === 'fileaway' && ttype !== 'table' ) {
-			var	options = { 'base' : '', 'sub' : '', 'images' : '', 'code' : '', 'only' : '', 'exclude' : '', 'include' : '', 'showto' : '', 'hidefrom' : '', 'heading' : '', 'hcolor' : '', 'width' : '', 'perpx' : '', 'align' : '', 'size' : '', 'mod' : '', 'style' : '', 'corners' : '', 'color' : '', 'accent' : '', 'icons' : '', 'iconcolor' : '', 'display' : '', 'nolinks' : '', 'debug' : '' }; 
+			var	options = { 'base' : '', 'sub' : '', 'images' : '', 'code' : '', 'only' : '', 'exclude' : '', 'include' : '', 'showto' : '', 'hidefrom' : '', 'heading' : '', 'hcolor' : '', 'width' : '', 'perpx' : '', 'align' : '', 'size' : '', 'mod' : '', 'recursive' : '', 'style' : '', 'corners' : '', 'color' : '', 'accent' : '', 'icons' : '', 'iconcolor' : '', 'display' : '', 'nolinks' : '', 'debug' : '' }; 
 			for( var index in options) {
 				var value = table.find('#ssfamodal-fl-' + index).val();
 				if ( value !== options[index] && value != null ) 
@@ -55,7 +55,7 @@ jQuery(function($){
 			} 
 		} 
 		if ( stype === 'fileaway' && ttype === 'table' ) {
-			var	options = { 'base' : '', 'sub' : '', 'images' : '', 'code' : '', 'only' : '', 'exclude' : '', 'include' : '', 'showto' : '', 'hidefrom' : '', 'heading' : '', 'hcolor' : '', 'width' : '', 'perpx' : '', 'align' : '', 'size' : '', 'mod' : '', 'style' : '', 'search' : '', 'paginate' : '', 'pagesize' : '', 'textalign' : '', 'customdata' : '', 'sortfirst' : '', 'nolinks' : '', 'debug' : '' }; 
+			var	options = { 'base' : '', 'sub' : '', 'images' : '', 'code' : '', 'only' : '', 'exclude' : '', 'include' : '', 'showto' : '', 'hidefrom' : '', 'heading' : '', 'hcolor' : '', 'width' : '', 'perpx' : '', 'align' : '', 'size' : '', 'mod' : '', 'recursive' : '', 'style' : '', 'search' : '', 'paginate' : '', 'pagesize' : '', 'textalign' : '', 'customdata' : '', 'sortfirst' : '', 'nolinks' : '', 'debug' : '' }; 
 			for( var index in options) {
 				var value = table.find('#ssfamodal-ft-' + index).val();
 				if ( value !== options[index] && value != null ) 

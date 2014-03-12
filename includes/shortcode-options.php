@@ -28,11 +28,11 @@
 	$thefiles = ( $type === 'table' 
 		? "<div id='ssfa-table-wrap' style='margin: 10px 0 0; $howshouldiputit'>" 
 		: "<div id='ssfa-list-wrap' class='$style$corners$bordercolor' style='margin: 10px 0; $howshouldiputit'>" );
-	$searchfield = ( $type === 'table' && $search !== 'no' 
+	$searchfield = ( ($type === 'table' and $search !== 'no') 
 		? "<div class='ssfa-search-wrap'><span data-ssfa-icon='&#xe047;' class='ssfa-searchicon' aria-hidden='true'></span>
 			<input id='filter-$uid' class='ssfa-searchfield' placeholder='SEARCH' value='' name='search' id='search' type='text' /></div>" 
 		: null );
-	$searchfield2 = ( !$heading && $search !== 'no' ? "<div class='ssfa-search-container'>$searchfield</div>" : null );
+	$searchfield2 = ( (!$heading and $search !== 'no') ? "<div class='ssfa-search-container'>$searchfield</div>" : null );
 	if ( $heading ) {
 		if ( $hcolor ) {
 			$thefiles .= "<h3 class='ssfa-heading ssfa-$hcolor'>$searchfield$heading</h3>"; }

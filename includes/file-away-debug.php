@@ -1,5 +1,5 @@
 <?php
-function ssfa_debug( $url, $dir ) {
+function ssfa_debug($url, $dir){
 	$thedebuggery = '		
 		<div style="background:#FFFFFF; border: 5px solid #CFCAC5; border-radius:0px; padding:20px; color:#444;">			
 		<img src="'.SSFA_IMAGES_URL.'fileaway_banner.png" style="width:300px;"><br><br>

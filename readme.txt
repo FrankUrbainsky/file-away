@@ -2,10 +2,10 @@
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 1.4
+Version: 1.5
 Requires at least: 3.5
 Tested up to: 3.8.1
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv3
 Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 Display file download links from your server directories or page attachments in stylized lists or sortable data tables.
@@ -15,6 +15,7 @@ Display file download links from your server directories or page attachments in 
 * Display files from your server directories or post/page attachments in stylized lists or sortable data tables with one of two powerful shortcodes.<br><br>
 * Two shortcodes with a combined total of 31 optional attributes to fine-tune the appearance and functionality of your lists and tables. <br><br>
 * Easily create dynamic paths to display different files to an unlimited number of different logged-in users, using one or more of File Away's four dynamic paths codewords, all with a single shortcode instance.<br><br>
+* Display files recursively, or from only a single specified directory.
 * Formidable Pro users can easily create dynamic paths in Formidable custom displays using Formidable shortcodes inside the File Away shortcode.<br><br>
 * Powered by the Emergency's Foo Table, your tables are sortable by column, searchable, and have the option to turn on pagination for large tables. <br><br>
 * Easily create custom columns in your tables to provide additional information about your files and attachments. <br><br>
@@ -138,12 +139,16 @@ All attributes optional:
 19. Enter a search term in the search field (here: "png") and everything else gets filtered out of the table.
 == Frequently Asked Questions ==
 = Does the File Away shortcode include subdirectories recursively? =
-No. 
+YES! 
 = Are you going to make it so that the File Away shortcode includes subdirectories recursively? =
-Hope to.
+See above.
 = When?!! =
-At some point before the rapid contraction of the universe.
+As of version 1.5, some few minutes before the rapid contraction of the universe. 
 == Changelog ==
+= 1.5 = 
+* RECURSIVE DIRECTORY ITERATION IS HERE. Just add "recursive=ohjeezusitgoeson4ever" to your shortcode (or, I guess, "recursive=anything"), and the files from the specified directory, and all subdirectories, will be output by the shortcode. To disable, just leave the "recusrsive" attribute out of the shortcode.
+* Also, bug fixes and some general improvements. Fixed bug with file type icons where file extensions were capitalized. Also fixed dumb bug with the pagesize field on the modal. And some other stuff.
+* But Recursion! Infinite Recursion. 
 = 1.4 = 
 * Expanded Functionality: You can now add an unlimited number of Custom Columns to your File Away tables, using the same method as before. In the shortcode, using the customdata attribute, separate multiple column headings by semi-colon. Then in your file names, inside the square brackets, separate the corresponding data sets by semi-colon.<br><br>
 Example Shortcode:<br>
@@ -172,6 +177,8 @@ Technically, the number of columns you can add is limited only by the size of yo
 = 1.0 =
 * Initial release
 == Upgrade Notice ==
+= 1.5 = 
+Important update: Recursive Directory Iteration has arrived! 
 = 1.3 = 
 Important update: fixed issue with WP Url vs. Site Url, and added three new shortcode attributes. 
 = 1.2 =

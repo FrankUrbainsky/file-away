@@ -1,35 +1,35 @@
 <?php
-$limited		=	( SSFA_BASE1 !== '' && SSFA_BS1NAME !== '' ? false : true );
-$table_classes	=	( SSFA_CUSTOM_TABLE_CLASSES === '' ? '' : preg_split( "/(,\s|,)/", preg_replace( '/\s+/', ' ', SSFA_CUSTOM_TABLE_CLASSES ) ) );
-$list_classes	=	( SSFA_CUSTOM_LIST_CLASSES === '' ? '' : preg_split( "/(,\s|,)/", preg_replace( '/\s+/', ' ', SSFA_CUSTOM_LIST_CLASSES ) ) );
-$color_classes	=	( SSFA_CUSTOM_COLOR_CLASSES === '' ? '' : preg_split( "/(,\s|,)/", preg_replace( '/\s+/', ' ', SSFA_CUSTOM_COLOR_CLASSES ) ) );
-$accent_classes	=	( SSFA_CUSTOM_ACCENT_CLASSES === '' ? '' : preg_split( "/(,\s|,)/", preg_replace( '/\s+/', ' ', SSFA_CUSTOM_ACCENT_CLASSES ) ) );
-function ssfa_custom_selections ( $classes ) {
-	if ( $classes !== '' ) {
-		foreach ( $classes as $class ) {
-			list ( $classclass, $classname ) = preg_split ( "/(\|)/", $class );
-			$classclass = trim ( $classclass, ' ' ); $classname = trim ( $classname, ' ' );
-			echo ( $classclass !== '' ? "<option value='$classclass'>$classname</option>" : null );
+$limited = (SSFA_BASE1 !== '' and SSFA_BS1NAME !== '' ? false : true);
+$table_classes = (SSFA_CUSTOM_TABLE_CLASSES === '' ? '' : preg_split("/(,\s|,)/", preg_replace('/\s+/', ' ', SSFA_CUSTOM_TABLE_CLASSES)));
+$list_classes = (SSFA_CUSTOM_LIST_CLASSES === '' ? '' : preg_split("/(,\s|,)/", preg_replace('/\s+/', ' ', SSFA_CUSTOM_LIST_CLASSES)));
+$color_classes = (SSFA_CUSTOM_COLOR_CLASSES === '' ? '' : preg_split("/(,\s|,)/", preg_replace('/\s+/', ' ', SSFA_CUSTOM_COLOR_CLASSES)));
+$accent_classes = (SSFA_CUSTOM_ACCENT_CLASSES === '' ? '' : preg_split("/(,\s|,)/", preg_replace('/\s+/', ' ', SSFA_CUSTOM_ACCENT_CLASSES)));
+function ssfa_custom_selections ($classes){
+	if ($classes !== ''){
+		foreach ($classes as $class){
+			list ($classclass, $classname) = preg_split ("/(\|)/", $class);
+			$classclass = trim ($classclass, ' '); $classname = trim ($classname, ' ');
+			echo ($classclass !== '' ? "<option value='$classclass'>$classname</option>" : null);
 		}
 	}
 }
-function ssfa_helplink($class) {
+function ssfa_helplink($class){
 	echo "<span class='link-ssfamodal-help-$class ssfamodal-helplink ssfa-helpinfo4'></span>"; }
-function ssfa_helpmodal($id) {
+function ssfa_helpmodal($id){
 	echo "<div id='ssfamodal-help-$id' class='ssfamodal-help-backdrop'>
 		<div class='ssfamodal-help-content'><div class='ssfamodal-help-close ssfa-helpclose2'></div>"; }
-function ssfa_baseselect($id) {
+function ssfa_baseselect($id){
 	echo '<select  id="ssfamodal-'.$id.'-base" class="select ssfamodal_base" name="base">
 		<option value="">Base Directory</option>';
-	if ( SSFA_BS1NAME !== '' && SSFA_BASE1 !== '' ) 
+	if (SSFA_BS1NAME !== '' and SSFA_BASE1 !== '') 
 		echo '<option value="" style="font-style: italic; color: red;">'.SSFA_BS1NAME.'</option>';
-	if ( SSFA_BS2NAME !== '' && SSFA_BASE2 !== '' )
+	if (SSFA_BS2NAME !== '' and SSFA_BASE2 !== '')
 		echo '<option value="2">'.SSFA_BS2NAME.'</option>';
-	if ( SSFA_BS3NAME !== '' && SSFA_BASE3 !== '' )
+	if (SSFA_BS3NAME !== '' and SSFA_BASE3 !== '')
 		echo '<option value="3">'.SSFA_BS3NAME.'</option>';
-	if ( SSFA_BS4NAME !== '' && SSFA_BASE4 !== '' )
+	if (SSFA_BS4NAME !== '' and SSFA_BASE4 !== '')
 		echo '<option value="4">'.SSFA_BS4NAME.'</option>';
-	if ( SSFA_BS5NAME !== '' && SSFA_BASE5 !== '' )
+	if (SSFA_BS5NAME !== '' and SSFA_BASE5 !== '')
 		echo '<option value="5">'.SSFA_BS5NAME.'</option>';	
 	echo '</select>';
 }
@@ -69,13 +69,13 @@ function ssfa_inclusionselect ($id, $type){
 	ssfa_helplink('hidefrom');
 	echo "</div>";			
 }
-function ssfa_colorselect ($id, $type, $ctype, $cname, $cclass) {
-	$style = 	( $ctype === 'color' ? ' style=\'width:80px;\'' : 
-				( $ctype === 'accent' ? ' style=\'width:77px;\'' : 
-				( $ctype === 'iconcolor' ? ' style=\'width:77px;\'' : null ) ) );
+function ssfa_colorselect ($id, $type, $ctype, $cname, $cclass){
+	$style = 	($ctype === 'color' ? ' style=\'width:80px;\'' : 
+				($ctype === 'accent' ? ' style=\'width:77px; margin-left:4px;\'' : 
+				($ctype === 'iconcolor' ? ' style=\'width:77px;\'' : null)));
 	echo "<select id='ss".$id."amodal-".$id.$type."-".$ctype."' class='select ss".$id."amodal_".$ctype."' name='".$ctype."'".$style." disabled>
 	<option value=''>".$cname."</option>
-	<option value='' style='font-style: italic; color: red;'>"; echo ($ctype === 'accent' ? 'Matched' : 'Random' ); echo "</option>
+	<option value='' style='font-style: italic; color: red;'>"; echo ($ctype === 'accent' ? 'Matched' : 'Random'); echo "</option>
 	<option value='black'>Black</option>
 	<option value='silver'>Silver</option>
 	<option value='red'>Red</option>
@@ -85,12 +85,12 @@ function ssfa_colorselect ($id, $type, $ctype, $cname, $cclass) {
 	<option value='orange'>Orange</option>
 	<option value='purple'>Purple</option>
 	<option value='pink'>Pink</option>";
-	ssfa_custom_selections ( $cclass ); 
+	ssfa_custom_selections ($cclass); 
 	echo "</select>";
 }
 ?>
 <div id="ssfamodal-form"> 
-<div style="float:right;"><?php if(current_user_can('manage_options')){ ?><a href="admin.php?page=file-away" target="_blank" class="ssfa-selectIt ssfa-config-options-modal" style="padding: 2px 15px;">Configure Options</a><?php } ?></div> 
+<div style="float:right;"><?php if (current_user_can('manage_options')){ ?><a href="admin.php?page=file-away" target="_blank" class="ssfa-selectIt ssfa-config-options-modal" style="padding: 2px 15px;">Configure Options</a><?php } ?></div> 
 <div id="ssfa-banner-anchor-wrap">
 <div id="ssfa-banner">
 <img src="<?php echo SSFA_IMAGES_URL.'fileaway_banner.png'; ?>" style="margin-left:5px; margin-right: 0px; position:relative; top:10px; width:425px;">
@@ -126,9 +126,9 @@ function ssfa_colorselect ($id, $type, $ctype, $cname, $cclass) {
 <div id="ssfa-anchor-wrap">
 <div id="ssfa-fileaway-list-toggle">
 <!------------------------------------------------------- FILEAWAY LIST COLUMN 1 ------------------------------------------------------->
-<?php if ( $limited ) { ?> 
+<?php if ($limited){ ?> 
 <table><tr><td style="vertical-align: top;"> 
-To use the Directory Files shortcode you need to assign at least the first base directory path and give it a display name. <a href="<?php echo get_admin_url ( ).'admin.php?page=file-away';?>" target="_blank">Get Started</a>
+To use the Directory Files shortcode you need to assign at least the first base directory path and give it a display name. <a href="<?php echo get_admin_url ().'admin.php?page=file-away';?>" target="_blank">Get Started</a>
 </td></tr></table>
 <?php } else { ?> 
 <table><tr><td style="width: 30%; vertical-align: top;"> 
@@ -154,12 +154,12 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <?php ssfa_helplink('hcolor') ?>
 </div>
 <div class="ssfamodal_option" style="display:inline-block; margin-right:0px;">
-<input type="text"  placeholder="Width" id="ssfamodal-fl-width" class="ssfamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px;" />
-<select id="ssfamodal-fl-perpx" class="select ssfamodal_perpx" name="perpx" style="width:77px;">
+<input type="text"  placeholder="Width" id="ssfamodal-fl-width" class="ssfamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px; float:left;" />
+<select id="ssfamodal-fl-paginate" class="select ssfamodal_paginate" name="paginate" style="width:77px; margin-left:4px;">
 <option value="" style="font-style: italic; color: red;">%</option>
 <option value="px">px</option>
 </select>
-<?php ssfa_helplink('width-perpx') ?>
+<?php ssfa_helplink('width-paginate') ?>
 </div>
 <div class="ssfamodal_option" style="display:inline-block;">
 <select id="ssfamodal-fl-align" class="select ssfamodal_align" name="align">
@@ -186,6 +186,18 @@ To use the Directory Files shortcode you need to assign at least the first base 
 </select>
 <?php ssfa_helplink('mod') ?>
 </div>
+<br /><br /><br />
+<div id="ssfa-recursive" class="ssfamodal_option" style="display:inline-block;">
+<select id="ssfamodal-fl-recursive" class="select ssfamodal_recursive" name="recursive">
+<option value="">Make Recursive</option>
+<option value="">No Way, Jose</option>
+<option value="ohglory">Yessirree, Bob</option>
+</select>
+<?php ssfa_helplink('recursive') ?>
+</div>
+
+
+
 </td>
 <!------------------------------------------------------- FILEAWAY LIST COLUMN 3 ------------------------------------------------------->
 <td style="width: 30%; vertical-align: top;">
@@ -194,7 +206,7 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <option value="">Style</option>
 <option value="" style="font-style: italic; color: red;">Minimal-List</option>
 <option value="silk">Silk</option>
-<?php ssfa_custom_selections ( $list_classes ); ?>
+<?php ssfa_custom_selections ($list_classes); ?>
 </select>
 <?php ssfa_helplink('style') ?>
 </div>
@@ -257,9 +269,9 @@ To use the Directory Files shortcode you need to assign at least the first base 
 </div>
 <div id="ssfa-fileaway-table-toggle">
 <!------------------------------------------------------- FILEAWAY TABLE COLUMN 1 ------------------------------------------------------->
-<?php if ( $limited ) { ?> 
+<?php if ($limited){ ?> 
 <table><tr><td style="vertical-align: top;"> 
-To use the Directory Files shortcode you need to assign at least the first base directory path and give it a display name. <a href="<?php echo get_admin_url ( ).'admin.php?page=file-away';?>" target="_blank">Get Started</a>
+To use the Directory Files shortcode you need to assign at least the first base directory path and give it a display name. <a href="<?php echo get_admin_url ().'admin.php?page=file-away';?>" target="_blank">Get Started</a>
 </td></tr></table>
 <?php } else { ?> 
 <table><tr><td style="width: 30%; vertical-align: top;"> 
@@ -284,12 +296,12 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <?php ssfa_helplink('hcolor') ?>
 </div>
 <div class="ssfamodal_option" style="display:inline-block; margin-right:0px;">
-<input type="text"  placeholder="Width" id="ssfamodal-ft-width" class="ssfamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px;" />
-<select id="ssfamodal-ft-perpx" class="select ssfamodal_perpx" name="perpx" style="width:77px;">
+<input type="text"  placeholder="Width" id="ssfamodal-ft-width" class="ssfamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px; float:left;" />
+<select id="ssfamodal-ft-paginate" class="select ssfamodal_paginate" name="paginate" style="width:77px; margin-left:4px;">
 <option value="" style="font-style: italic; color: red;">%</option>
 <option value="px">px</option>
 </select>
-<?php ssfa_helplink('width-perpx') ?>
+<?php ssfa_helplink('width-paginate') ?>
 </div>
 <div class="ssfamodal_option" style="display:inline-block;">
 <select id="ssfamodal-ft-align" class="select ssfamodal_align" name="align">
@@ -316,6 +328,15 @@ To use the Directory Files shortcode you need to assign at least the first base 
 </select>
 <?php ssfa_helplink('mod') ?>
 </div>
+<br /><br /><br />
+<div id="ssfa-recursive" class="ssfamodal_option" style="display:inline-block;">
+<select id="ssfamodal-ft-recursive" class="select ssfamodal_recursive" name="recursive">
+<option value="">Make Recursive</option>
+<option value="">No Way, Jose</option>
+<option value="ohglory">Yessirree, Bob</option>
+</select>
+<?php ssfa_helplink('recursive') ?>
+</div>
 </td>
 <!------------------------------------------------------- FILEAWAY TABLE COLUMN 3 ------------------------------------------------------->
 <td style="width: 30%; vertical-align: top;">
@@ -324,7 +345,7 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <option value="">Style</option>
 <option value="" style="font-style: italic; color: red;">Minimalist</option>
 <option value="silver-bullet">Silver Bullet</option>
-<?php ssfa_custom_selections ( $table_classes ); ?>
+<?php ssfa_custom_selections ($table_classes); ?>
 </select>
 <?php ssfa_helplink('style') ?>
 </div>
@@ -342,12 +363,12 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <?php ssfa_helplink('search-icons') ?>
 </div>
 <div class="ssfa-types ssfamodal_option" style="display:inline-block;">
-<select id="ssfamodal-ft-paginate" class="select ssfamodal_paginate" name="paginate" style="width:82px" disabled>
+<select id="ssfamodal-ft-paginate" class="select ssfamodal_paginate" name="paginate" style="width:82px; margin-top:1px; float:left;" disabled>
 <option value="">Paginate</option>
 <option value="" style="font-style: italic; color: red;">Off</option>
 <option value="yes">On</option>
 </select>
-<input type="text" placeholder="# per page" id="ssfamodal-ft-pagesize" class="ssfamodal_pagesize" name="pagesize" value="" maxlength="3" size="3" style="width:75px;" disabled />
+<input type="text" placeholder="# per page" id="ssfamodal-ft-pagesize" class="ssfamodal_pagesize" name="pagesize" value="" maxlength="3" size="3" style="width:75px; margin-left:4px;" disabled />
 <?php ssfa_helplink('paginate-pagesize') ?>
 </div>
 <div class="ssfa-types ssfamodal_option" style="display:inline-block;">
@@ -428,12 +449,12 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <?php ssfa_helplink('hcolor') ?>
 </div>
 <div class="ssaamodal_option" style="display:inline-block; margin-right:0px;">
-<input type="text"  placeholder="Width" id="ssaamodal-al-width" class="ssaamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px;" />
-<select id="ssaamodal-al-perpx" class="select ssaamodal_perpx" name="perpx" style="width:77px;">
+<input type="text"  placeholder="Width" id="ssaamodal-al-width" class="ssaamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px; float:left;" />
+<select id="ssaamodal-al-paginate" class="select ssaamodal_paginate" name="paginate" style="width:77px; margin-left:4px;">
 <option value="" style="font-style: italic; color: red;">%</option>
 <option value="px">px</option>
 </select>
-<?php ssfa_helplink('width-perpx') ?>
+<?php ssfa_helplink('width-paginate') ?>
 </div>
 <div class="ssaamodal_option" style="display:inline-block;">
 <select id="ssaamodal-al-align" class="select ssaamodal_align" name="align">
@@ -460,7 +481,7 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <option value="">Style</option>
 <option value="" style="font-style: italic; color: red;">Minimal-List</option>
 <option value="silk">Silk</option>
-<?php ssfa_custom_selections ( $list_classes ); ?>
+<?php ssfa_custom_selections ($list_classes); ?>
 </select>
 <?php ssfa_helplink('style') ?>
 </div>
@@ -532,12 +553,12 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <?php ssfa_helplink('hcolor') ?>
 </div>
 <div class="ssaamodal_option" style="display:inline-block; margin-right:0px;">
-<input type="text"  placeholder="Width" id="ssaamodal-at-width" class="ssaamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px;" />
-<select id="ssaamodal-at-perpx" class="select ssaamodal_perpx" name="perpx" style="width:77px;">
+<input type="text"  placeholder="Width" id="ssaamodal-at-width" class="ssaamodal_width" name="width" value="" maxlength="4" size="4" style="width:80px; float:left;" />
+<select id="ssaamodal-at-paginate" class="select ssaamodal_paginate" name="paginate" style="width:77px; margin-left:4px;">
 <option value="" style="font-style: italic; color: red;">%</option>
 <option value="px">px</option>
 </select>
-<?php ssfa_helplink('width-perpx') ?>
+<?php ssfa_helplink('width-paginate') ?>
 </div>
 <div class="ssaamodal_option" style="display:inline-block;">
 <select id="ssaamodal-at-align" class="select ssaamodal_align" name="align">
@@ -564,7 +585,7 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <option value="">Style</option>
 <option value="" style="font-style: italic; color: red;">Minimalist</option>
 <option value="silver-bullet">Silver Bullet</option>
-<?php ssfa_custom_selections ( $table_classes ); ?>
+<?php ssfa_custom_selections ($table_classes); ?>
 </select>
 <?php ssfa_helplink('style') ?>
 </div>
@@ -582,12 +603,12 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <?php ssfa_helplink('search-icons') ?>
 </div>
 <div class="ssaa-types ssaamodal_option" style="display:inline-block;">
-<select id="ssaamodal-at-paginate" class="select ssaamodal_paginate" name="paginate" style="width:82px" disabled>
+<select id="ssaamodal-at-paginate" class="select ssaamodal_paginate" name="paginate" style="width:82px; margin-top:1px; float:left;" disabled>
 <option value="">Paginate</option>
 <option value="" style="font-style: italic; color: red;">Off</option>
 <option value="yes">On</option>
 </select>
-<input type="text" placeholder="# per page" id="ssaamodal-at-pagesize" class="ssaamodal_pagesize" name="pagesize" value="" maxlength="3" size="3" style="width:75px;" disabled />
+<input type="text" placeholder="# per page" id="ssaamodal-at-pagesize" class="ssaamodal_pagesize" name="pagesize" value="" maxlength="3" size="3" style="width:75px; margin-left:4px;" disabled />
 <?php ssfa_helplink('paginate-pagesize') ?>
 </div>
 <div class="ssaa-types ssaamodal_option" style="display:inline-block;">
@@ -629,37 +650,37 @@ To use the Directory Files shortcode you need to assign at least the first base 
 <br />
 </div>
 <script>
-jQuery(function($) {
+jQuery(document).ready(function($) {
 	function colorizeSelect(){
-	    if($(this).prop('selectedIndex') === 0) $(this).addClass("empty");
+	    if ($(this).prop('selectedIndex') === 0) $(this).addClass("empty");
 	    else $(this).removeClass("empty")
 	}
 	$(".select").on('change keyup', colorizeSelect).change();
-	$('#ssfamodal-type, #ssfamodal-shortcode-type').bind('change', function(event) {
+	$('#ssfamodal-type, #ssfamodal-shortcode-type').bind('change', function(event){
 		$("#ssfa-fileaway-list-toggle .select").addClass("empty");
 		$("#ssfa-fileaway-table-toggle .select").addClass("empty");
 		$("#ssfa-attachaway-list-toggle .select").addClass("empty");
 		$("#ssfa-attachaway-table-toggle .select").addClass("empty");						
 	});
-	$('#ssfamodal-shortcode-type').bind('change', function(event) {
+	$('#ssfamodal-shortcode-type').bind('change', function(event){
 		var $st = $('#ssfamodal-shortcode-type').val(); 
-		if($st == "null" || $st == 'fileaway'){
+		if ($st == "null" || $st == 'fileaway'){
 			$('#ssaa-banner').css({opacity : '0', 'z-index' : '-1', transition : 'all 1s ease-out'});
-			$('#ssfa-banner').delay( 1000 ).queue( function(next){ 
+			$('#ssfa-banner').delay(1000).queue(function(next){ 
 				$(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); 
 			});
 		}
-		if($st == "attachaway"){
+		if ($st == "attachaway"){
 			$('#ssfa-banner').css({opacity : '0', 'z-index' : '-1', transition : 'all 1s ease-out'});
-			$('#ssaa-banner').delay( 1000 ).queue( function(next){
+			$('#ssaa-banner').delay(1000).queue(function(next){
 				$(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next();
 			});
 		}			 
  	});
-	$('#ssfamodal-shortcode-type, #ssfamodal-type').bind('change', function(event) {
+	$('#ssfamodal-shortcode-type, #ssfamodal-type').bind('change', function(event){
 		var $sct = $('#ssfamodal-shortcode-type').val(); 
 		var $t = $('#ssfamodal-type').val();		   
-		if($sct == "null" || $t == 'null') {
+		if ($sct == "null" || $t == 'null'){
 			$('#ssfamodal-submit-wrap,\
 				#ssfa-attachaway-table-toggle,\
 				#ssfa-fileaway-list-toggle,\
@@ -675,13 +696,13 @@ jQuery(function($) {
 				#ssfa-attachaway-list-toggle input:text,\
 				#ssfa-attachaway-list-toggle select').val('').prop('selectedIndex',0).attr('disabled', 'disabled');
 		}
-        if($sct=="fileaway" && $t==""){
+        if ($sct=="fileaway" && $t==""){
 			$('#ssfamodal-submit-wrap,\
 				#ssfa-fileaway-table-toggle,\
 				#ssfa-attachaway-table-toggle,\
 				#ssfa-attachaway-list-toggle').css({opacity : '0', 'z-index' : '-1', transition : 'all 1s ease-out'});
-			$('#ssfamodal-submit-wrap, #ssfa-fileaway-list-toggle').delay( 1000 )
-				.queue( function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); });
+			$('#ssfamodal-submit-wrap, #ssfa-fileaway-list-toggle').delay(1000)
+				.queue(function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); });
 			$('#ssfamodal-submit-wrap input:button').attr('disabled', 'disabled').css({cursor : 'default'});
 			$('#ssfa-fileaway-table-toggle input:text,\
 				#ssfa-fileaway-table-toggle select,\
@@ -694,13 +715,13 @@ jQuery(function($) {
 				#ssfa-fileaway-list-toggle select').removeAttr('disabled');
 			$('#ssfamodal-fl-corners').prop('selectedIndex',0).attr('disabled', 'disabled');
 		}
-	    if($sct=="fileaway" && $t=="table"){
+	    if ($sct=="fileaway" && $t=="table"){
 			$('#ssfamodal-submit-wrap,\
 				#ssfa-fileaway-list-toggle,\
 				#ssfa-attachaway-table-toggle,\
 				#ssfa-attachaway-list-toggle').css({opacity : '0', 'z-index' : '-1', transition : 'all 1s ease-out'});
-			$('#ssfamodal-submit-wrap, #ssfa-fileaway-table-toggle').delay( 1000 )
-				.queue( function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); });			  
+			$('#ssfamodal-submit-wrap, #ssfa-fileaway-table-toggle').delay(1000)
+				.queue(function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); });			  
 			$('#ssfamodal-submit-wrap input:button').attr('disabled', 'disabled').css({cursor : 'default'});
 			$('#ssfa-fileaway-list-toggle input:text,\
 			   #ssfa-fileaway-list-toggle select,\
@@ -713,13 +734,13 @@ jQuery(function($) {
 			   #ssfa-fileaway-table-toggle select').removeAttr('disabled');
 			$('#ssfamodal-ft-pagesize').val('').attr('disabled', 'disabled');				
 		}
-		if($sct=="attachaway" && $t==""){
+		if ($sct=="attachaway" && $t==""){
 			$('#ssfamodal-submit-wrap,\
 				#ssfa-fileaway-table-toggle,\
 				#ssfa-attachaway-table-toggle,\
 				#ssfa-fileaway-list-toggle').css({opacity : '0', 'z-index' : '-1', transition : 'all 1s ease-out'});
-			$('#ssfamodal-submit-wrap, #ssfa-attachaway-list-toggle').delay( 1000 )
-				.queue( function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); }); 		
+			$('#ssfamodal-submit-wrap, #ssfa-attachaway-list-toggle').delay(1000)
+				.queue(function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); }); 		
 			$('#ssfamodal-submit-wrap input:button').attr('disabled', 'disabled').css({cursor : 'default'});	
 			$('#ssfa-fileaway-table-toggle input:text,\
 			   #ssfa-fileaway-table-toggle select,\
@@ -732,13 +753,13 @@ jQuery(function($) {
 				#ssfa-attachaway-list-toggle select').removeAttr('disabled');
 			$('#ssaamodal-al-corners').prop('selectedIndex',0).attr('disabled', 'disabled');
 		}
-		if($sct=="attachaway" && $t=="table"){
+		if ($sct=="attachaway" && $t=="table"){
 			$('#ssfamodal-submit-wrap,\
 				#ssfa-fileaway-list-toggle,\
 				#ssfa-fileaway-table-toggle,\
 				#ssfa-attachaway-list-toggle').css({opacity : '0', 'z-index' : '-1', transition : 'all 1s ease-out'});
-			$('#ssfamodal-submit-wrap, #ssfa-attachaway-table-toggle').delay( 1000 )
-				.queue( function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); }); 				  
+			$('#ssfamodal-submit-wrap, #ssfa-attachaway-table-toggle').delay(1000)
+				.queue(function(next){ $(this).css({opacity : '1', 'z-index' : '1', transition : 'all 1s ease-in'}); next(); }); 				  
 			$('#ssfamodal-submit-wrap input:button').attr('disabled', 'disabled').css({cursor : 'default'});
 			$('#ssfa-fileaway-list-toggle input:text,\
 				#ssfa-fileaway-list-toggle select,\
@@ -752,46 +773,51 @@ jQuery(function($) {
 			$('#ssaamodal-at-pagesize').val('').attr('disabled', 'disabled');				
 		}
 	});
-	var $corners_al = $('#ssaamodal-al-corners'),
-		$corners_fl = $('#ssfamodal-fl-corners'),
-		$style_al = $('#ssaamodal-al-style');
-		$style_fl = $('#ssfamodal-fl-style');	
-		$pagination_at = $('#ssaamodal-at-paginate'),
-		$pagination_ft = $('#ssfamodal-ft-paginate'),
-		$pagenum_at = $('#ssaamodal-at-pagesize');
-		$pagenum_ft = $('#ssfamodal-ft-pagesize');	
+	var $corners_al = $('select#ssaamodal-al-corners');
+	var $corners_fl = $('select#ssfamodal-fl-corners');
+	var $style_al = $('select#ssaamodal-al-style');
+	var $style_fl = $('select#ssfamodal-fl-style');	
+	var $pagination_at = $('select#ssaamodal-at-paginate');
+	var $pagination_ft = $('select#ssfamodal-ft-paginate');
+	var $pagenum_at = $('input#ssaamodal-at-pagesize');
+	var $pagenum_ft = $('input#ssfamodal-ft-pagesize');	
 	$style_al.change(function(){
-	   	if ($style_al.val() !== '') {
+	   	if ($style_al.val() !== ''){
 	       	$corners_al.removeAttr('disabled');
 		} else {
 			$corners_al.attr('disabled', 'disabled').val('');
 		}
 	}).trigger('change');	
-	$style_fl.change(function() {	
-		if ($style_fl.val() !== '') {
+	$style_fl.change(function(){	
+		if ($style_fl.val() !== ''){
 			$corners_fl.removeAttr('disabled');
 		} else {
 			$corners_fl.attr('disabled', 'disabled').val('');
 		}	
 	}).trigger('change');
-	$pagination_at.change(function() {
-		if ($pagination_at.val() !== '') {
-			$pagenum_at.removeAttr('disabled');
-		} else {
-			$pagenum_at.attr('disabled', 'disabled').val('');
-		}
-	}).trigger('change');
-	$pagination_ft.change(function() {
-		if ($pagination_ft.val() !== '') {
-			$pagenum_ft.removeAttr('disabled');
-		} else {
-			$pagenum_ft.attr('disabled', 'disabled').val('');
-		}			
-	}).trigger('change');
+//	$pagination_at.change(function(){
+//		if ($pagination_at.val() !== ''){
+//			$pagenum_at.removeAttr('disabled');
+//		} else {
+//			$pagenum_at.attr('disabled', 'disabled').val('');
+//		}
+//	}).trigger('change');
+	$pagination_at.on('change', function (e) {
+	    $optionSelected = $("option:selected", this);
+	    $apval = this.value;
+		if ($apval !== '') $pagenum_at.removeAttr('disabled');
+		else $pagenum_at.attr('disabled', 'disabled').val('');
+	});
+	$pagination_ft.on('change', function (e) {
+	    $optionSelected = $("option:selected", this);
+	    $pval = this.value;
+		if ($pval !== '') $pagenum_ft.removeAttr('disabled');
+		else $pagenum_ft.attr('disabled', 'disabled').val('');
+	});
 	var	con = $('.ssfamodal-help-content'),
 		wba = $('.better-attachments'),
 		fao = $('.feature-options');									
-	$('div[id^=ssfamodal-help-]').each(function() {
+	$('div[id^=ssfamodal-help-]').each(function(){
 		var sfx = this.id,
 			mdl = $(this),
 			cls = $('.ssfamodal-help-close'),			
@@ -799,20 +825,20 @@ jQuery(function($) {
 		lnk.click(function(){
 			mdl.fadeIn('fast');
 		});
-		mdl.click(function() {
+		mdl.click(function(){
 			mdl.fadeOut('fast');
 		});
 		cls.click(function(){
 			mdl.fadeOut('fast');
 		});
 	});
-		con.click(function() {
+		con.click(function(){
 			return false;
 		});
-		wba.click(function() {
+		wba.click(function(){
 			window.open('http://wordpress.org/plugins/wp-better-attachments/', '_blank');
 		});
-		fao.click(function() {
+		fao.click(function(){
 			window.open('admin.php?page=file-away#options', '_blank');
 		});				
 });
@@ -877,7 +903,7 @@ Optional: Give your list or table a nice title.
 <h4>Heading Color</h4>
 Defaults to random color if left blank.
 </div></div>
-<?php ssfa_helpmodal('width-perpx'); ?>
+<?php ssfa_helpmodal('width-paginate'); ?>
 <h4>Width</h4>
 Optional: If left blank, will default to auto-width if the type is set as 'Alphabetical List,' and to 100% if the type is set as 'Sortable Data Table.' If less than 100%, text will wrap around your list or table to the left or right, depending upon your alignment setting.
 <br />
@@ -896,6 +922,10 @@ Will show the file size by default if left blank. In tables, you'll be able to s
 <?php ssfa_helpmodal('mod'); ?>
 <h4>Date Modified</h4>
 If left blank, will show by default in tables, as a sortable column, and will hide by default in lists. (Note: This option is not available for Post / Page Attachments.)
+</div></div>
+<?php ssfa_helpmodal('recursive'); ?>
+<h4>Recusrive Directory Iteration</h4>
+If left blank, only the files in the single directory specified will be displayed. If 'Yes,' the files from all subdirectories will be displayed as well. (Note: This option is not available for Post / Page Attachments.)
 </div></div>
 <?php ssfa_helpmodal('style'); ?>
 <h4>Style</h4>
@@ -969,7 +999,7 @@ Note that anything in square brackets will only show up in Data Tables, and, in 
 If left blank, by default the shortcode will grab the attachments from the page or post where the shortcode is inserted (the current page). Alternatively, you can specify a post/page ID here, and the shortcode will grab the attachments from that one instead.
 <br />
 <br />
-If you don't know the ID, Attach Away has added an 'ID' column to your 'All Pages' and 'All Posts' pages. <?php if(current_user_can('manage_options')){ ?>This column can be enabled or disabled in File Away > <a href="admin.php?page=file-away#options" class="feature-options" target="_blank">Feature Options</a><?php } ?>
+If you don't know the ID, Attach Away has added an 'ID' column to your 'All Pages' and 'All Posts' pages. <?php if (current_user_can('manage_options')){ ?>This column can be enabled or disabled in File Away > <a href="admin.php?page=file-away#options" class="feature-options" target="_blank">Feature Options</a><?php } ?>
 </div></div>
 <?php ssfa_helpmodal('capcolumn'); ?>
 <h4>Caption Column</h4>
