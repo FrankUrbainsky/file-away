@@ -147,7 +147,7 @@ At some point before the rapid contraction of the universe.
 = 1.4 = 
 * Expanded Functionality: You can now add an unlimited number of Custom Columns to your File Away tables, using the same method as before. In the shortcode, using the customdata attribute, separate multiple column headings by semi-colon. Then in your file names, inside the square brackets, separate the corresponding data sets by semi-colon.<br><br>
 Example Shortcode:<br>
-[fileaway type=table customdata="Artist*; Label; Year" sortfirst="custom"]<br>
+[fileaway type=table customdata="Artist*; Album; Label; Year" sortfirst="custom"]<br>
 The asterisk next to "Artist" indicates that sortfirst="custom" should apply to the "Artist" column.<br><br>
 Example Filenames:<br>
   My Funny Valentine [Chet Baker; My Funny Valentine; Blue Note; 1994].mp3<br>
