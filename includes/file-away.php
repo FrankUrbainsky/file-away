@@ -22,10 +22,25 @@ function sssc_fileaway ( $atts ) {
 		'hidefrom'   => '', 'nolinks'	 => ''
 	 ), $atts ) );
 	$current_user = wp_get_current_user(); $logged_in = is_user_logged_in(); 
-	if ($showto) { $showlevels = preg_split ( '/(, |,)/', $showto ); foreach ( $showlevels as $slevel ) { if ( ! current_user_can ($slevel) ) return; } }
-	if ($hidefrom) { if ( ! $logged_in ) return; $hidelevels = preg_split ( '/(, |,)/', $hidefrom ); foreach ( $hidelevels as $hlevel ) { 
-		if ( current_user_can ($hlevel) ) { if ($showto) { foreach ( $showlevels as $slevel ) { if ( ! current_user_can ($slevel) ) return; } } 
-		else { return; } } } } 
+	$showtothese = true;
+	if ($hidefrom) { 
+		if ( ! $logged_in ) $showtothese = false; 
+		$hidelevels = preg_split ( '/(, |,)/', $hidefrom ); 
+		foreach ( $hidelevels as $hlevel ) { 
+			if ( current_user_can ($hlevel) ) { 
+				$showtothese = false;
+			} 
+		} 
+	} 
+	if ($showto) { 
+		$showtothese = false; 
+		$showlevels = preg_split ( '/(, |,)/', $showto ); 
+		foreach ( $showlevels as $slevel ) { 
+			if ( current_user_can ($slevel) ) 
+				$showtothese = true; 
+		} 
+	}
+	if ($showtothese == false) return;
 	$siteaddress = rtrim( get_bloginfo('url'), '/' ); $wpaddress = rtrim( get_bloginfo('wpurl'), '/' );	
 	if ( $siteaddress !== '' && $siteaddress !== null && $siteaddress !== $wpaddress ) $url = $siteaddress; 
 	else $url = get_site_url(); $nietzsche = ssfa_hungary_v_denmark(); 
