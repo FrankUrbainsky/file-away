@@ -2,10 +2,13 @@
 
 // RECURSIVE DIRECTORY ITERATOR
 function ssfa_recursive_files($directory){
-	function ssfa_recursive($directory, &$directories = array()){
-		foreach(glob($directory, GLOB_ONLYDIR | GLOB_NOSORT) as $folder): 
-			$directories[] = $folder; ssfa_recursive("{$folder}/*", $directories); 
-		endforeach;
+
+	if(!function_exists('ssfa_recursive')) {
+		function ssfa_recursive($directory, &$directories = array()){
+			foreach(glob($directory, GLOB_ONLYDIR | GLOB_NOSORT) as $folder): 
+				$directories[] = $folder; ssfa_recursive("{$folder}/*", $directories); 
+			endforeach;
+		}
 	}
 	ssfa_recursive($directory, $directories);
 	$files = array ();
