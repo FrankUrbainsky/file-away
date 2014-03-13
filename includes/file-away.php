@@ -19,7 +19,7 @@ function sssc_fileaway($atts){
 		'customdata' => '',	'debug'		 => '',	
 		'sortfirst'  => '', 'showto'  	 => '', 
 		'hidefrom'   => '', 'nolinks'	 => '',
-		'recursive'	 => '',
+		'recursive'	 => '', 'directories' => '',
 	), $atts));
 	$current_user = wp_get_current_user(); $logged_in = is_user_logged_in(); 
 	$showtothese = true;
@@ -53,8 +53,38 @@ function sssc_fileaway($atts){
 	include SSFA_INCLUDES.'private-content.php';  
 	$dir = (strpos($dir, '//') ? preg_replace('#/+#', '/', $dir) : $dir);
 	if ($private_content == true && !is_dir($dir)) return null;
-	include SSFA_INCLUDES.'shortcode-options.php';  
+
+	if($directories):
+		$type = 'table'; 
+		$recursive = false;
+		$basecheck = trim($base,'/');
+		if(strpos($basecheck, '/')):
+			$subbase = strrchr($basecheck, "/"); 
+			$basebase = str_replace($subbase, '', $basecheck); 
+		else: $basebase = $basecheck;
+				$subbase = $basebase;
+		endif;
+		$start = $dir;
+		if(isset($_REQUEST['drawer'])): 
+			$dir = $basebase.'/'.$_GET['drawer']; 
+			$dir = str_replace(',', '/', $dir);
+			if (!is_dir($dir))$dir = $start;
+		endif;
+		$baselessdir = replace_first($basebase, '', $dir);
+		$crumbs = explode('/', ltrim($baselessdir, '/'));
+		$crumblink = array();
+		if (!$heading) $addclass = '-noheading';
+		$thefiles .= "<div class='ssfa-crumbs$addclass'>";
+		foreach ($crumbs as $k => $crumb):
+			$i = 0; while ($i <= $k): if ($i == 0) $comma = null; else $comma ="%2C"; $crumblink[$k] .= $comma.$crumbs[$i]; $i++; endwhile; 
+			$thefiles .= "<a href='?drawer=".$crumblink[$k]."'>$crumb</a>/";
+		endforeach;
+		$thefiles .= "</div>";
+	endif;
+
+	include SSFA_INCLUDES.'shortcode-options.php';  		
 	if ($type === 'table'):
+		if ($directories) $sortfirst = 'type';
 		$typesort = null; $filenamesort = null; $customsort = null; $modsort = null; $sizesort = null;
 		if ($sortfirst === 'type') $typesort = " data-sort-initial='true'"; 
 		elseif ($sortfirst === 'type-desc') $typesort = " data-sort-initial='descending'"; 
@@ -72,12 +102,14 @@ function sssc_fileaway($atts){
 			<table id='ssfa-table' data-filter='#filter-$uid' $page class='footable ssfa-sortable $style $textalign'><thead><tr>
 			<th class='ssfa-sorttype $style-first-column' title='Click to Sort'".$typesort.">Type</th>
 			<th class='ssfa-sortname' title='Click to Sort'".$filenamesort.">File Name</th>";
+		$cells = null; if ($mod !== 'no') $cells .= '1,'; if ($size !== 'no') $cells .= '1,'; 		
 		if ($customdata):
 			$custom_sort = true;
 			$customarray = explode(';', $customdata);
 			foreach($customarray as $customdatum): if (preg_match('/[*]/', $customdatum)) $custom_sort = false; endforeach;
 			foreach($customarray as $customdatum):
 				if ($customdatum !== ''):
+					$cells .= '1,';
 					if (preg_match('/[*]/', $customdatum)): $customdatum = str_replace('*', '', $customdatum); $custom_sort = true; endif;
 					if ($custom_sort == true) $custom_sort = $customsort;
 					$customdatum = trim($customdatum, ' ');
@@ -85,14 +117,28 @@ function sssc_fileaway($atts){
 				endif;
 			endforeach;
 		endif;
+		$cells = rtrim($cells,',');
 		$thefiles .= ($mod !== 'no' ? "<th class='ssfa-sortdate' data-type='numeric' title='Click to Sort'".$modsort.">Date Modified</th>" : null);
 		$thefiles .= ($size !== 'no' ? "<th class='ssfa-sortsize' data-type='numeric' title='Click to Sort'".$sizesort.">Size</th>" : null);
 		$thefiles .= "</tr></thead><tfoot><tr><td colspan='100'>$pagearea</td></tr></tfoot><tbody>"; 
 	endif;	
-	$files = ($recursive ?(ssfa_recursive_files($dir)) : $files = scandir($dir)); 
+	
+	if ($directories):
+		foreach ( glob($dir."/*", GLOB_ONLYDIR) as $k=> $folder ):
+			$link = replace_first($basebase, '', $folder);
+			$folder = str_replace($dir.'/', '', $folder);
+			$link = str_replace('/', '%2C', ltrim($link, '/'));
+			$thefiles .= "<tr><td data-value='00$k' class='ssfa-sorttype $style-first-column'><a href='?drawer=$link'><span data-ssfa-icon='=' style='font-size:20px; margin-left:3px;' class='$iconstyle $icocol' aria-hidden='true'></span><br>dir</a></td><td class='ssfa-sortname'><h4 style='text-transform:uppercase;'><a href='?drawer=$link'>$folder</a></h4></td>"; 			
+			$thecells = explode(',', $cells); foreach ($thecells as $cell): $thefiles .= "<td></td>"; endforeach; $thefiles .= "</tr>";
+		endforeach;
+	endif;
+	
+	if($scheduling) $recursize = 0;
+	$files = ($recursive ? (ssfa_recursive_files($dir)) : $files = scandir($dir)); 
 	date_default_timezone_set($timezone); natcasesort($files); $count = 0; $original_dir = $dir;
+
 	foreach($files as $file):
-	include SSFA_INCLUDES.'includes-excludes.php'; 
+		include SSFA_INCLUDES.'includes-excludes.php'; 
 		if ($exclusions):			
 			$link = ($recursive ? $url.'/'.$file : $url.'/'.$dir.'/'.$file);
 			$slices = pathinfo($link); 
@@ -168,6 +214,7 @@ function sssc_fileaway($atts){
 	if ($debug === 'on' && $logged_in): include SSFA_INCLUDES.'file-away-debug.php'; return ssfa_debug($url, $original_dir);
 	elseif ($logged_in && $private_content && $count !== 0): return $thefiles; 	
 	elseif ($private_content !== true && $count !== 0): return $thefiles; 
+	elseif ($directories && ($private_content !== true || ($logged_in && $private_content))): return $thefiles;
 	endif;
 }
 

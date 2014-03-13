@@ -11,9 +11,13 @@ function ssfa_recursive_files($directory){
 	ssfa_recursive($directory, $directories);
 	$files = array ();
 	foreach($directories as $directory): 
-		foreach(glob("{$directory}/*.*") as $file): if (is_file($file)) $files[] = $file; endforeach; 
+		foreach(glob("{$directory}/*.*") as $file): /*if (is_file($file))*/ $files[] = $file; endforeach; 
 	endforeach;
 	return $files;
+}
+//	REPLACE FIRST INSTANCE
+function replace_first($find, $replace, $subject) {
+	return implode($replace, explode($find, $subject, 2));
 }
 // BYTE CONVERTER FOR FILE SIZES
 function ssfa_formatBytes($size, $precision = 2){

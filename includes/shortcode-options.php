@@ -25,7 +25,7 @@
 	$float = ( $align ? " float:$align;" : " float:left;" );
 	$margin = ( $width !== 'width:100%;' ? ( $align === 'right' ? ' margin-left:15px;' : ' margin-right:15px;' ) : null );
 	$howshouldiputit = $width.$float.$margin;
-	$thefiles = ( $type === 'table' 
+	$thefiles .= ( $type === 'table' 
 		? "<div id='ssfa-table-wrap' style='margin: 10px 0 0; $howshouldiputit'>" 
 		: "<div id='ssfa-list-wrap' class='$style$corners$bordercolor' style='margin: 10px 0; $howshouldiputit'>" );
 	$searchfield = ( ($type === 'table' and $search !== 'no') 
