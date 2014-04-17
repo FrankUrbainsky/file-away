@@ -1,5 +1,5 @@
 (function(){
-   if(sseo_mce_config.version === 'new'){
+   if(ssfa_mce_config.version === 'new'){
 		tinymce.PluginManager.add('ssfamodal', function( editor, url ) {
 			editor.addButton( 'ssfamodal', {
 				title: ssfa_mce_config.tb_title,
