@@ -183,7 +183,7 @@ As of version 1.5, some few minutes before the rapid contraction of the universe
 Yeah, that's a weird bug with WordPress's auto-update process that occurs sometimes. To fix, just download the plugin manually and install it via FTP or something.
 
 == Changelog ==
-= 1.7.8 =
+= 1.8 =
 * Important security updates and bug fixes:
 * Added security patch for Manager Mode and Directory Tree Mode when using dynamic paths (e.g., fa-firstlast) in your shortcode. 
 * Fixed fatal error when more than one fileaway shortcode on the same page has debug enabled.
