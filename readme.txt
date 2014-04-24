@@ -1,11 +1,11 @@
-=== File Away ===
+﻿=== File Away ===
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 1.7.8
+Version: 1.8
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 1.7.8
+Stable tag: 1.8
 License: GPLv3
 Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 Display file download links from your server directories or page attachments in stylized lists or sortable data tables.
