@@ -1,11 +1,11 @@
-=== File Away ===
+﻿=== File Away ===
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 1.9
+Version: 1.9.0.1
 Requires at least: 3.5
 Tested up to: 3.9
-Stable tag: 1.9
+Stable tag: 1.9.0.1
 License: GPLv3
 Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 Display file download links from your server directories or page attachments in stylized lists or sortable data tables.
@@ -202,6 +202,8 @@ As of version 1.5, some few minutes before the rapid contraction of the universe
 Yeah, that's a weird bug with WordPress's auto-update process that occurs sometimes. To fix, just download the plugin manually and install it via FTP or something.
 
 == Changelog ==
+= 1.9.0.1 =
+* Fixed typo that was preventing the exclude attribute from working. I had revamped the exclusions system, and didn't catch the typo. 
 = 1.9 =
 * Oh my God, oh my God, oh MY GOD
 * Now with in-table Audio Playback for your audio files. See shortcode generator info links and/or Tutorials tab for details. To activate Audio Playback in your tables, find "The Hymnal" at the bottom of the second column of the Directory Files/Sortable Data Table shortcode generator. 
