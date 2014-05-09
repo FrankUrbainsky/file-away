@@ -711,7 +711,7 @@ table#ssfa-table.ssfa-silver-bullet > tfoot > tr > td > div.ssfa-pagination > ul
 	border-radius: 50px;
 	float: left;
 	line-height: 15px;
-	padding: 4px 12px;
+	padding: 4px 8px;
 	text-decoration: none;
 	text-shadow: none;
 }
@@ -869,7 +869,7 @@ table#ssfa-table.ssfa-minimalist > tfoot > tr > td > div.ssfa-pagination > ul > 
 	border: 0;
 	float: left;
 	line-height: 15px;
-	padding: 4px 12px;
+	padding: 4px 8px;
 	text-decoration: none;
 }
 table#ssfa-table.ssfa-minimalist > tfoot > tr > td > div.ssfa-pagination > ul > li > a:hover,
