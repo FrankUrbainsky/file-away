@@ -3,7 +3,7 @@
    Plugin Name: File Away
    Plugin URI: http://wordpress.org/plugins/file-away/
    Description: Display file download links from your server directories or page attachments in stylized lists or sortable data tables.
-   Version: 1.9.4
+   Version: 1.9.4.1
    Author: Thom Stark
    Author URI: http://imdb.me/thomstark
    License: GPLv3
