@@ -2,10 +2,10 @@
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 1.9.4.2
+Version: 1.9.4.3
 Requires at least: 3.5
 Tested up to: 3.9.2
-Stable tag: 1.9.4.2
+Stable tag: 1.9.4.3
 License: GPLv3
 Tags: files, attachments, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 Display file download links from your server directories or page attachments in stylized lists or sortable data tables.
@@ -195,6 +195,8 @@ As of version 1.5, some few minutes before the rapid contraction of the universe
 = I installed the latest update and now the TinyMCE button has disappeared from my page editor. What gives? =
 Yeah, that's a weird bug with WordPress's auto-update process that occurs sometimes. To fix, just download the plugin manually and install it via FTP or something.
 == Changelog ==
+= 1.9.4.3 =
+* Fixed Playback Mode was not compatible with dynamic paths.
 = 1.9.4.2 =
 * Fixed Playback Mode skipping non-audio files with same filename as audio files.
 = 1.9.4.1 =
