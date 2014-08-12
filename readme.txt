@@ -8,7 +8,7 @@ Tested up to: 3.9.2
 Stable tag: 2.0
 License: GPLv3
 Tags: files, attachments, upload, ajax, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
-Display file downloads from your server directories or page attachments in stylized lists or sortable data tables. Upload files to your server from the front-end.
+Display file downloads from your server directories or page attachments in stylized lists or sortable data tables. Upload files to your server.
 == Description ==
 Display file download links from your server directories or page attachments in stylized lists or sortable data tables. Construct shortcodes manually or using a point and click UI. Easily create dynamic paths to show different content to different logged-in users. Manage files securely from the front-end. Upload files to your server from the front-end.
 = Features =
