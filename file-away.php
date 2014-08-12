@@ -2,7 +2,7 @@
 /*
    Plugin Name: File Away
    Plugin URI: http://wordpress.org/plugins/file-away/
-   Description: Display file download links from your server directories or page attachments in stylized lists or sortable data tables.
+   Description: Display file downloads from your server directories or page attachments in stylized lists or sortable data tables. Upload files to your server.
    Version: 2.0
    Author: Thom Stark
    Author URI: http://imdb.me/thomstark
