@@ -743,7 +743,7 @@ function fileaway_option($option){
 }
 function update_fileaway_option($option, $value){
 	$options = get_option('fileaway_options');
-	if($options[$option] !== $value): 
+	if(!isset($options[$option]) || $options[$option] != $value): 
 		$options[$option] = $value;
 		update_option('fileaway_options', $options);
 	endif;
