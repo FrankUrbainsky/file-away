@@ -98,7 +98,8 @@ require_once(SSFA_INCLUDES.'fileaframe.php');
 // INITIALIZATION HOOK
 add_action('admin_init', 'ssfa_initialize');
 function ssfa_initialize(){ 
-	$version = fileaway_option('version');
+	$version = fileaway_option('version') ? 
+		fileaway_option('version') : null;
 	if($version == SSFA_VERSION) return;
 	$themedir = get_template_directory(); 
 	$template = 'file-away-iframe-template.php';
