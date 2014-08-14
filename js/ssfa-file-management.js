@@ -1344,7 +1344,7 @@ jQuery(document).ready(function($){
 									$dropdown = $('select#ssfa-fileup-directories-select');
 									$dropdown.empty().append(response.ops).trigger('chozed:updated').trigger('liszt:updated');
 									$hp.val(response.pp);
-									$putpath.html('Destination: '+response.crumbs).append($loading);
+									$putpath.html(response.crumbs).append($loading);
 									$loading.hide();
 									$('div#ssfa-fileup-action-path').change();
 								}
