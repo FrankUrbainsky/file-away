@@ -201,7 +201,7 @@ As of version 1.5, some few minutes before the rapid contraction of the universe
 = I installed the latest update and now the TinyMCE button has disappeared from my page editor. What gives? =
 Yeah, that's a weird bug with WordPress's auto-update process that occurs sometimes. To fix, just download the plugin manually and install it via FTP or something.
 == Changelog ==
-= 2.5 =
+= 2.2.5 =
 * Added alternate option for thumbnails. Previously, the thumbnails generated were temporary, and were generated on every pageload. You now have the option to generate permanent thumbnail images on initial page load, which means that if a given image already has a thumbnail generated, it will only have to happen once. Every page load after that, the thumbnails will already be there, and won't have to be regenerated. You can choose either option, transient or permanent. 
 = 2.2 = 
 * Added option in File Away tables to replace filetype icons with image thumbnails generated on the fly for jpg/jpeg, gif and png images. See "Image Thumbnails" in the third column of the Sortable Data Table section on the shortcode generator modal. 
