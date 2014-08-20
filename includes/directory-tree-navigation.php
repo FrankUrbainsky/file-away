@@ -39,7 +39,7 @@ foreach ($crumbs as $k => $crumb):
 	$prettycrumb = preg_replace('/(?<=\D)-(?=\d)/', ' ', $prettycrumb);
 	$prettycrumb = ssfa_strtotitle($prettycrumb);
 	if($crumb !== ''):
-		$i = 0; while ($i <= $k): if ($i == 0) $comma = null; else $comma ="*"; $crumblink[$k] = $comma."$crumbs[$i]"; $i++; endwhile;
+		$i = 0; while ($i <= $k): if ($i == 0) $comma = null; else $comma ="*"; $crumblink[$k] .= $comma."$crumbs[$i]"; $i++; endwhile;
 		if ($basebase === $basecheck): $crumblink[$k] = ltrim(ssfa_replace_first("$basebase", '', "$crumblink[$k]"), '*'); endif;
 		$thefiles .= '<a href="'.add_query_arg( array( 'drawer' => $crumblink[$k] ), get_permalink()).'">'."$prettycrumb".'</a> / ';
 	endif;
