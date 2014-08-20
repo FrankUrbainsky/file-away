@@ -3,14 +3,14 @@
    Plugin Name: File Away
    Plugin URI: http://wordpress.org/plugins/file-away/
    Description: Upload, manage, and display files from your server directories or page attachments in stylized lists or sortable data tables.
-   Version: 2.3
+   Version: 2.3.1
    Author: Thom Stark
    Author URI: http://imdb.me/thomstark
    License: GPLv3
 */
 // DEFINITIONS
 // Version
-define('SSFA_VERSION', '2.3');
+define('SSFA_VERSION', '2.3.1');
 // Ground
 define('SSFA_FILE', __FILE__);
 define('SSFA_FOLDER', dirname(plugin_basename(SSFA_FILE)));  
