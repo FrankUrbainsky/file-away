@@ -2,10 +2,10 @@
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 2.3
+Version: 2.3.1
 Requires at least: 3.5
 Tested up to: 3.9.2
-Stable tag: 2.3
+Stable tag: 2.3.1
 License: GPLv3
 Tags: files, attachments, upload, ajax, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 Upload, manage, and display files from your server directories or page attachments in stylized lists or sortable data tables.
@@ -201,6 +201,8 @@ As of version 1.5, some few minutes before the rapid contraction of the universe
 = I installed the latest update and now the TinyMCE button has disappeared from my page editor. What gives? =
 Yeah, that's a weird bug with WordPress's auto-update process that occurs sometimes. To fix, just download the plugin manually and install it via FTP or something.
 == Changelog ==
+= 2.3.1 = 
+* Important bug fix for directory tree and manager mode tables. In my last release I had removed a single period (.) from the code, and I just realized this caused the breadcrumb navigation atop the tables to stop working. So, my bad. It's fixed now. I'm working on a major overhaul of the plugin, but had to get this fix pushed so you can start navigating backwards again. Because what is life if it isn't going forwards and backwards, forwards and backwards. 
 = 2.3 =
 * Added second audio player option for audio playback. The new alternative will go in the filename column, and has a full control panel. To utilize, just use playback="extended". For backwards compatibility, playback="anything_else" will be rendered as a the original compact version in the filetype column. 
 * Added option to restrict the ability to create/delete/rename sub-directories to specified user roles. In other words, you can give a user access to manage/rename/delete files in their own directory, but not to create/rename/delete their own directories. By default, anyone with manager mode access will have directory management access. 
