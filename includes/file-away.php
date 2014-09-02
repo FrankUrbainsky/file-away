@@ -349,6 +349,7 @@ function sssc_fileaway($atts){
 				if($nolinks === 'yes' || $nolinks === 'true'):
 					$nolinkslist = "<a id='ssfa' class='$display$noicons$colors' style='cursor:default'>"; 
 					$nolinkstable = "<a id='ssfa' class='$colors' style='cursor:default'>"; 
+					$players = null;
 				else:	
 					$nolinkslist = "<a id='ssfa' class='$display$noicons$colors' $fulllink $linktype>"; 
 					$nolinkstable = "<a id='ssfa' class='$colors' $fulllink $linktype>";
