@@ -59,13 +59,13 @@ if(!class_exists('fileaway_management'))
 							$status = "insert";
 							$message = 
 								"<tr id='ssfa-dir-$uid-$count' class='ssfa-drawers'>".
-									"<td id='folder-ssfa-dir-$uid-$count' data-value=\"0 0 0 0 0 $first\" class='ssfa-sorttype $class-first-column'>".
+									"<td id='folder-ssfa-dir-$uid-$count' data-value=\"# # # # # $first\" class='ssfa-sorttype $class-first-column'>".
 										"<a href=\"".add_query_arg(array('drawer' => $drawer), get_permalink($page))."\" data-name=\"".$first."\" data-path=\"".$start."\">".
 											"<span style='font-size:20px; margin-left:3px;' class='ssfa-icon-$drawericon' aria-hidden='true'></span>".
 											"<br>"._x('dir', 'abbrv. of *directory*', 'file-away').
 										"</a>".
 									"</td>".
-									"<td id='name-ssfa-dir-$uid-$count' data-value='0 0 0 0 0 $first' class='ssfa-sortname'>".
+									"<td id='name-ssfa-dir-$uid-$count' data-value='# # # # # $first' class='ssfa-sortname'>".
 										"<a href=\"".add_query_arg(array('drawer' => $drawer), get_permalink($page))."\">".
 											"<span style='text-transform:uppercase;'>$prettyfolder</span>".
 										"</a>".
