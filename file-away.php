@@ -3,6 +3,7 @@
 ** Plugin Name: File Away
 ** Plugin URI: http://wordpress.org/plugins/file-away/
 ** Text Domain: file-away
+** Domain Path: /lib/lng
 ** Description: Upload, manage, and display files from your server directories or page attachments in stylized lists or sortable data tables.
 ** Version: 2.5
 ** Author: Thom Stark
