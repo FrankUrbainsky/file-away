@@ -18,13 +18,13 @@ if($directories)
 	{
 		$thefiles .= 
 			"<tr id='row-ssfa-create-dir-$uid' class='ssfa-drawers'>".
-				"<td id='folder-ssfa-create-dir-$uid' data-value='0 0 0 0' class='ssfa-sorttype $style-first-column'>".
+				"<td id='folder-ssfa-create-dir-$uid' data-value='# # # #' class='ssfa-sorttype $style-first-column'>".
 					"<a id='ssfa-create-dir-$uid' href='javascript:'>".
 						"<span style='font-size:20px; margin-left:3px;' class='ssfa-icon-chart-alt' aria-hidden='true'></span>".
 						"<br>".__('new', 'file-away').
 					"</a>".
 				"</td>".
-				"<td id='name-ssfa-create-dir-$uid' data-value='0 0 0 0' class='ssfa-sortname'>".
+				"<td id='name-ssfa-create-dir-$uid' data-value='# # # #' class='ssfa-sortname'>".
 					'<input id="input-ssfa-create-dir-'.$uid.'" type="text" placeholder="'.__('Name Your Sub-Directory', 'file-away').'" " value="" '.
 						'style="width:90%; height:26px; font-size:12px; text-align:center; display:none">'.
 				"</td>";
@@ -78,13 +78,13 @@ if($directories)
 					'style="width:90%; height:26px; font-size:12px; text-align:center; display:none">' : null;
 				$thefiles .= 
 					"<tr id='ssfa-dir-$uid-$f' class='ssfa-drawers'>".
-						"<td id='folder-ssfa-dir-$uid-$f' data-value='0 0 0 0 0 $folder' class='ssfa-sorttype $style-first-column'>".
+						"<td id='folder-ssfa-dir-$uid-$f' data-value='# # # # # $folder' class='ssfa-sorttype $style-first-column'>".
 							"<a href=\"".add_query_arg(array('drawer' => $dlink), get_permalink())."\" data-name=\"".$folder."\" data-path=\"".$dpath."\">".
 								"<span style='font-size:20px; margin-left:3px;' class='ssfa-icon-$drawericon' aria-hidden='true'></span>".
 								"<br>"._x('dir', 'abbrv. of *directory*', 'file-away').
 							"</a>".
 						"</td>".
-						"<td id='name-ssfa-dir-$uid-$f' data-value='0 0 0 0 0 $folder' class='ssfa-sortname'>".
+						"<td id='name-ssfa-dir-$uid-$f' data-value='# # # # # $folder' class='ssfa-sortname'>".
 							"<a href=\"".add_query_arg(array('drawer' => $dlink), get_permalink())."\">".
 								"<span style='text-transform:uppercase;'>$prettyfolder</span>".
 							"</a>".$renamedir.
