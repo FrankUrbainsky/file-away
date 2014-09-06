@@ -2,10 +2,10 @@
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 2.6
+Version: 2.6.1
 Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 2.6
+Stable tag: 2.6.1
 License: GPLv3
 Tags: files, attachments, upload, ajax, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 Upload, manage, and display files from your server directories or page attachments in stylized lists or sortable data tables.
@@ -120,6 +120,8 @@ As of version 1.5, some few minutes before the rapid contraction of the universe
 = I installed the latest update and now the TinyMCE button has disappeared from my page editor. What gives? =
 Yeah, that's a weird bug with WordPress's auto-update process that occurs sometimes. To fix, just download the plugin manually and install it via FTP or something.
 == Changelog ==
+= 2.6.1 =
+* Patch for those who don't have openssl configured on their server, to prevent fatal error when calling openssl function.
 = 2.6 =
 * Added feature: encrypted download links with url masking, for [fileaway] lists and tables.
 * Fixed: filename link was spanning whole width of table cell when Playback mode is activated.
