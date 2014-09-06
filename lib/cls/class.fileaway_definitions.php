@@ -18,8 +18,8 @@ if(!class_exists('fileaway_definitions'))
 			$this->codexts = array('js', 'pl', 'py', 'rb', 'css', 'less', 'scss', 'sass', 'php', 'htm', 
 				'html', 'cgi', 'asp', 'cfm', 'cpp', 'yml', 'shtm', 'xhtm', 'java', 'class');
 			$this->nevershows = array('index.htm', 'index.html', 'index.php', '.htaccess', '.htpasswd');
-			$this->file_exclusions = $this->options['exclusions'] ? preg_split('/(, |,)/', $this->options['exclusions']) : false;  
-			$this->dir_exclusions = $this->options['direxclusions'] ? preg_split('/(, |,)/', $this->options['direxclusions']) : false;  			
+			$this->file_exclusions = $this->options['exclusions'] ? preg_split('/(, |,)/', $this->options['exclusions']) : array();  
+			$this->dir_exclusions = $this->options['direxclusions'] ? preg_split('/(, |,)/', $this->options['direxclusions']) : array();  			
 			$this->filegroups = array(
 				'adobe'=>array(
 					'Adobe',
