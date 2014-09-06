@@ -74,7 +74,20 @@ if(!class_exists('fileaway_admin'))
 		{
 			if(!isset($this->options['encryption_key']) || strlen($this->options['encryption_key']) < 16)
 			{
-				$this->options['encryption_key'] = bin2hex(openssl_random_pseudo_bytes(16));
+				if(function_exists('openssl_random_pseudo_bytes'))
+				{
+					$this->options['encryption_key'] = bin2hex(openssl_random_pseudo_bytes(16));
+				}
+				else
+				{
+					$key = '';
+					$keys = array_merge(range(0, 9), range('a', 'z'));
+					for($i = 0; $i < 32; $i++)
+					{
+						$key .= $keys[array_rand($keys)];
+					}
+					$this->options['encryption_key'] = $key;
+				}
 				update_option('fileaway_options', $this->options);
 			}
 		}
