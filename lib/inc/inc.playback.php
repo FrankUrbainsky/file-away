@@ -51,8 +51,12 @@ if(!$skipthis && in_array($oext, $sources))
 		if(is_file($sourcefilepath.'.'.$audioext))
 		{ 
 			$dlcolor = !$color ? " ssfa-".$randcolor[array_rand($randcolor)] : " ssfa-$colors";
-			$players .= $s2mem ? '<a class="ssfa-audio-download '.$dlcolor.'" href="'.$url.'/?s2member_file_download='.str_replace('&', '%26', $rawname).'.'.$audioext.$s2skip.'">' 
-				: '<a class="ssfa-audio-download '.$dlcolor.'" href="'.$sourcefileurl.'.'.$audioext.'" download="'.$rawname.'.'.$audioext.'">';
+			$players .= $encryption 
+				? '<a class="ssfa-audio-download '.$dlcolor.'" href="'.$encrypt->url($sourcefilepath.'.'.$audioext).'">' 
+				: ($s2mem 
+					? '<a class="ssfa-audio-download '.$dlcolor.'" href="'.$url.'/?s2member_file_download='.str_replace('&', '%26', $rawname).'.'.$audioext.$s2skip.'">' 
+					: '<a class="ssfa-audio-download '.$dlcolor.'" href="'.$sourcefileurl.'.'.$audioext.'" download="'.$rawname.'.'.$audioext.'">'
+				);
 			$players .= '<div class="ssfa-audio-download" style="margin-bottom:10px;">';
 			$players .= '<span class="ssfa-fileaplay-in ssfa-audio-download"></span>';
 			$players .= strtoupper($audioext);
