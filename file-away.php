@@ -5,7 +5,7 @@
 ** Text Domain: file-away
 ** Domain Path: /lib/lng
 ** Description: Upload, manage, and display files from your server directories or page attachments in stylized lists or sortable data tables.
-** Version: 2.8
+** Version: 2.8.1
 ** Author: Thom Stark
 ** Author URI: http://imdb.me/thomstark
 ** License: GPLv3
@@ -13,7 +13,7 @@
 define('fileaway', __FILE__);
 define('fileaway_dir', dirname(fileaway));
 define('fileaway_url', plugins_url('', fileaway));
-define('fileaway_version', '2.8');
+define('fileaway_version', '2.8.1');
 if(!class_exists('fileaway_autofiler'))
 {
 	class fileaway_autofiler
