@@ -2,10 +2,10 @@
 Name: File Away
 Contributors: thomstark
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=2JHFN4UF23ARG
-Version: 2.8
+Version: 2.8.1
 Requires at least: 3.7
 Tested up to: 4.0
-Stable tag: 2.8
+Stable tag: 2.8.1
 License: GPLv3
 Tags: files, attachments, upload, ajax, shortcodes, lists, tables, directory, file manager, custom css, formidable, forms, dynamic, dynamic paths
 Upload, manage, and display files from your server directories or page attachments in stylized lists or sortable data tables.
@@ -121,6 +121,8 @@ As of version 1.5, some few minutes before the rapid contraction of the universe
 = I installed the latest update and now the TinyMCE button has disappeared from my page editor. What gives? =
 Yeah, that's a weird bug with WordPress's auto-update process that occurs sometimes. To fix, just download the plugin manually and install it via FTP or something.
 == Changelog ==
+= 2.8.1 =
+* One of the plugin files became corrupted, I have no idea how, just from going back and forth between my server and the WP repository I guess. It was causing "3 characters of unexpected output" messages on plugin activation. There was nothing wrong with any of the code. The file itself had become corrupted. Had to create a blank file and paste the text from the old file into the new file to fix it. So now you get another update because stupid. 
 = 2.8 =
 * Three major improvements and one powerful new feature in this release.
 * Big New Feature: Simply add `makedir="true"` to your `[fileaway]` or `[fileup]` shortcodes and if the directory you're pointing to does not yet exist, it will be created for you on the first page load, recursively. Works with static and dynamic paths. If using dynamic paths, that means your site users will create their own personal directories just by visiting the page where your `[fileaway]` or `[fileup]` shortcode is embedded. If using dynamic paths, no directory will be created if the user is not logged in. In addition to the creation of the new directories, a blank index.php file will be created in the child-most directory, to prevent direct browser access. This means you no longer have to manually create directories before you can point your shortcodes to them. Just point to them, and they'll be there waiting for you when you hit the page. 
