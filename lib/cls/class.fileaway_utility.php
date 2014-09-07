@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('fileaway') or die('Water, water everywhere, but not a drop to drink.');
 if(!class_exists('fileaway_utility'))
 {
@@ -170,19 +170,6 @@ if(!class_exists('fileaway_utility'))
 			$current_user = wp_get_current_user(); 
 			$logged_in = is_user_logged_in();
 			$showtothese = true;
-			if($hidefrom)
-			{ 
-				if(!$logged_in) $showtothese = false; 
-				$hidelevels = preg_split('/(, |,)/', $hidefrom); 
-				foreach($hidelevels as $hlevel)
-				{ 
-					if(current_user_can($hlevel))
-					{ 
-						$showtothese = false; 
-						break; 
-					}
-				}
-			}
 			if($showto)
 			{ 
 				$showtothese = false; 
@@ -192,6 +179,19 @@ if(!class_exists('fileaway_utility'))
 					if(current_user_can($slevel))
 					{ 
 						$showtothese = true; 
+						break; 
+					}
+				}
+			}
+			if($hidefrom)
+			{ 
+				if(!$logged_in) $showtothese = false; 
+				$hidelevels = preg_split('/(, |,)/', $hidefrom); 
+				foreach($hidelevels as $hlevel)
+				{ 
+					if(current_user_can($hlevel))
+					{ 
+						$showtothese = false; 
 						break; 
 					}
 				}
