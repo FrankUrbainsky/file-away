@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 defined('fileaway') or die('Water, water everywhere, but not a drop to drink.');
 if(!class_exists('fileaway_utility'))
 {
@@ -325,9 +325,12 @@ if(!class_exists('fileaway_utility'))
 			foreach($roles->roles as $role => $name) $a[$role] = $role; 
 			foreach($roles->roles as $role)
 			{
-				foreach($role['capabilities'] as $cap => $bool) if(strpos($cap, 'level_') === false) $b[$cap] = $cap;
+				if(isset($role['capabilities']) && is_array($role['capabilities']))
+				{ 
+					foreach($role['capabilities'] as $cap => $bool) if(strpos($cap, 'level_') === false) $b[$cap] = $cap;
+				}
 			}
-			if(is_array($b)) ksort($b);
+			if(count($b) > 0) ksort($b);
 			$caps = array_unique(array_merge($a, $b));
 			return $caps;	
 		}
