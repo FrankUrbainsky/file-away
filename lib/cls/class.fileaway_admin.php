@@ -59,12 +59,12 @@ if(!class_exists('fileaway_admin'))
 		}
 		public function version()
 		{
-			$version = isset($this->options['version']) ? (float)$this->options['version'] : 1.0;
-			if($version === (float)fileaway_version) return;
-			if($version < 2.8) $this->options['strictlogin'] = 'false';
+			$version = isset($this->options['version']) ? (string)$this->options['version'] : '1.0';
+			if($version === (string)fileaway_version) return;
+			if($version < '2.8' && !isset($this->options['strictlogin'])) $this->options['strictlogin'] = 'false';
 			$themedir = get_template_directory(); 
 			$template = 'file-away-iframe-template.php';
-			if($version < 2.4) copy(fileaway_dir.'/templates/'.$template, $themedir.'/'.$template);
+			if($version < '2.4') copy(fileaway_dir.'/templates/'.$template, $themedir.'/'.$template);
 			elseif(!file_exists($themedir.'/'.$template)) copy(fileaway_dir.'/templates/'.$template, $themedir.'/'.$template); 
 			$this->options['version'] = fileaway_version;
 			update_option('fileaway_options', $this->options);
