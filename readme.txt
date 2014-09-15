@@ -69,7 +69,7 @@ Click the link to follow File Away for info on upcoming releases, bugfixes: [@fi
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Use the provided shortcode generator and use the codes on your pages, posts, widgets, etc.
 == Screenshots ==
-01. With File Away's home-cooked FLightbox, you can read acclaimed books that you've written without having to leave the comfor of your WordPress installation. 
+01. With File Away's home-cooked FLightbox, you can read acclaimed books that you've written without having to leave the comfort of your WordPress installation. 
 02. With FLightbox you can watch award-winning films that you wrote and directed, in any of the four FLightbox themes, or with a theme of your own design!
 03. With FLightbox, you can gaze nostalgically at a screengrab of that little skit you filmed with Edward James Olmos at the 46th-Annual WorldFest International Film Festival.
 04. With File Up, you can upload depressing screenshots from your favorite Bergman films, and rename them before sending them to the black-and-white world of binary. You can have as many File Up forms on a page as you desire, all of them simultaneously uploading screenshots from Bela Tarr and Ingmar Bergman films, to make your site's visitors really happy.
