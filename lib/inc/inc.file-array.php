@@ -1,5 +1,6 @@
 <?php
 defined('fileaway') or die('Water, water everywhere, but not a drop to drink.');
+include fileaway_dir.'/lib/class/class.win1252_compatibility.php';
 if(is_array($files))
 {
 	$now = time();
@@ -16,8 +17,8 @@ if(is_array($files))
 			$exts[] = $extension;
 			$locs[] = $slices['dirname']; 
 			$fulls[] = $slices['basename']; 
-			$rawnames[] = $slices['filename'];
-			$links[] = fileaway_utility::urlesc($link);
+			$rawnames[] = Encoding::toUtf8($slices['filename']);
+      $links[] = Encoding::toUtf8(fileaway_utility::urlesc($link));
 			$dirs[] = $dir;
 			$times[] = $mod != 'no' ? filemtime($dir.'/'.$slices['basename']) : $now;
 			$dynamics[] = false;
